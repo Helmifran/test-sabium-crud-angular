@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-title>Alterar Cliente</mat-card-title>
+    <form [formGroup]="formulario">
+        <mat-form-field>
+            <input matInput placeholder="Nome" name="nome" formControlName="nome" minlength="5" required>
+            <mat-error *ngIf="formulario.get('nome').hasError('required')">
+                O nome é obrigatório
+            </mat-error>
+            <mat-error *ngIf="formulario.get('nome').hasError('minlength')">
+                O nome deve ter no mínimo 5 caracteres
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" name="email" formControlName="email" ngModel [email]="true" required>
+            <mat-error *ngIf="formulario.get('email').hasError('required')">
+                O email é obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Data de nascimento" (ngModelChange)="dateChange($event)"
+            name="dataDeNascimento" formControlName="dataDeNascimento" required>
+            <mat-error *ngIf="formulario.get('dataDeNascimento').hasError('required')">
+                A data de nascimento é obrigatório
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Idade" name="idade" formControlName="idade" disabled>
+
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput placeholder="CPF" (blur)="validarCpf()" name="cpf" formControlName="cpf" required>
+        <mat-error *ngIf="formulario.get('cpf').hasError('required')">
+            O CPF é obrigatório
+        </mat-error>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="save()" color="primary">
+        Atualizar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-title>Excluir Cliente</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome"
+                [(ngModel)]="product.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="email"
+                [(ngModel)]="product.email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Data de nascimento" 
+                [(ngModel)]="product.dataDeNascimento" name="dataDeNascimento" [matDatepicker]="getDataNascimentoFormatada">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="idade"
+                [(ngModel)]="product.idade" name="idade">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="deleteProduct()" color="warn">
+        Excluir
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

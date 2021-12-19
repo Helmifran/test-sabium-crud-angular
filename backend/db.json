@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 5,
+      "nome": "Helmifran Gonzaga",
+      "email": "contato@helmifran.com",
+      "cpf": "00000000000",
+      "dataDeNascimento": "1990-03-20T03:00:00.000Z",
+      "idade": 31
+    }
+  ]
+}
